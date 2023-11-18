@@ -16,7 +16,7 @@ public class ContestProblemCtry2 {
 
             if (part.matches("\\w+")) {
 
-                if (isVowel(part.charAt(0))) {
+                if (isVowelOrNumber(part.charAt(0))) {
                     result.append(part).append("moo");
                 } else {
                     if (part.length() > 1) {
@@ -27,11 +27,9 @@ public class ContestProblemCtry2 {
                 }
             } else {
 
-                result.append(part);
+                result.append(part.replaceAll("\\s+", " "));
             }
         }
-
-
         int i = result.length() - 1;
         while (i >= 0 && Character.isWhitespace(result.charAt(i))) {
             i--;
@@ -42,7 +40,7 @@ public class ContestProblemCtry2 {
         scanner.close();
     }
 
-    private static boolean isVowel(char c) {
-        return "aeiouAEIOU".indexOf(c) >= 0;
+    private static boolean isVowelOrNumber(char c) {
+        return "aeiouAEIOU".indexOf(c) >= 0 || Character.isDigit(c);
     }
 }
