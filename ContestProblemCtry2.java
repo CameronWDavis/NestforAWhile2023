@@ -31,7 +31,14 @@ public class ContestProblemCtry2 {
             }
         }
 
-        System.out.println(result);
+
+        int i = result.length() - 1;
+        while (i >= 0 && Character.isWhitespace(result.charAt(i))) {
+            i--;
+        }
+        result.setLength(i + 1);
+
+        System.out.print(result);
         scanner.close();
     }
 
